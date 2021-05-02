@@ -1,0 +1,7 @@
+{
+  "gitRevision": "master",
+  "name": "ts-monorepo",
+  "out": "docs",
+  "packages": ["."],
+  "plugin": ["typedoc-plugin-nojekyll"]
+}
