@@ -1,0 +1,278 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ts-monorepo</title>
+	<meta name="description" content="Documentation for ts-monorepo">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">ts-monorepo</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>ts-monorepo</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<!--suppress HtmlDeprecatedAttribute -->
+				<div align="center">
+					<p><img src="media/monorepo.png" alt=""></p>
+					<p>Template project for setting up a TypeScript monorepo</p>
+					<p><img src="https://github.com/NiGhTTraX/ts-monorepo/workflows/Tests/badge.svg" alt="Build Status"></p>
+				</div>
+				<hr>
+				<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+				<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+				<p><strong>Table of content</strong></p>
+				<ul>
+					<li><a href="#features">Features</a></li>
+					<li><a href="#setup">Setup</a></li>
+					<li><a href="#docs">Docs</a></li>
+					<li><a href="#examples">Examples</a><ul>
+							<li><a href="#ts-node">ts-node</a></li>
+							<li><a href="#babel">Babel</a></li>
+							<li><a href="#webpack">webpack</a></li>
+							<li><a href="#jest">jest</a></li>
+							<li><a href="#create-react-app">create-react-app</a></li>
+							<li><a href="#nextjs">NextJS</a></li>
+							<li><a href="#nestjs">NestJS</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+				<a href="#features" id="features" style="color: inherit; text-decoration: none;">
+					<h2>Features</h2>
+				</a>
+				<p>The main focus of this repo is making the <code>Go to definition</code> feature in IDEs work without any surprises, meaning it will work after a fresh clone without needing to build the project.</p>
+				<p><img src="./media/find-usage.gif" alt="find-usage"></p>
+				<p>The secondary focus is to remove surprises when publishing packages. The repo is set up so that each package gets a clean build output without any artifacts from other packages.</p>
+				<p><img src="./media/build-output.png" alt="build-output"></p>
+				<a href="#setup" id="setup" style="color: inherit; text-decoration: none;">
+					<h2>Setup</h2>
+				</a>
+				<pre><code><span style="color: #001080">npm</span><span style="color: #000000"> </span><span style="color: #001080">install</span>
+</code></pre>
+				<a href="#docs" id="docs" style="color: inherit; text-decoration: none;">
+					<h2>Docs</h2>
+				</a>
+				<p>See the following blog posts:</p>
+				<ul>
+					<li><a href="https://medium.com/@NiGhTTraX/how-to-set-up-a-typescript-monorepo-with-lerna-c6acda7d4559">How to set up a TypeScript monorepo and make Go to definition work</a></li>
+					<li><a href="https://medium.com/@NiGhTTraX/making-typescript-monorepos-play-nice-with-other-tools-a8d197fdc680">Making TypeScript monorepos play nice with other tools</a></li>
+				</ul>
+				<p>If you&#39;re looking for the project references solution checkout the <a href="https://github.com/NiGhTTraX/lerna-ts/tree/project-references"><code>project-references</code></a> branch.</p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<p>This repo contains full examples of integrating with other tools and frameworks that need to be made aware that they&#39;re working with a monorepo. You can find each example in the <code>examples/</code> folder.</p>
+				<a href="#ts-node" id="ts-node" style="color: inherit; text-decoration: none;">
+					<h3>ts-node</h3>
+				</a>
+				<p>Use <a href="https://www.npmjs.com/package/tsconfig-paths">tsconfig-paths</a> to resolve the path aliases at runtime:</p>
+				<pre><code class="language-json"><span style="color: #000000">{</span>
+<span style="color: #000000">  </span><span style="color: #0451A5">&quot;scripts&quot;</span><span style="color: #000000">: {</span>
+<span style="color: #000000">    </span><span style="color: #0451A5">&quot;start&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;ts-node -r tsconfig-paths/register src/index.ts&quot;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>See the full example <a href="examples/ts-node">here</a>.</p>
+				<a href="#babel" id="babel" style="color: inherit; text-decoration: none;">
+					<h3>Babel</h3>
+				</a>
+				<p>Use <a href="https://www.npmjs.com/package/babel-plugin-module-resolver">babel-plugin-module-resolver</a> to resolve the path aliases:</p>
+				<pre><code class="language-js"><span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">presets:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">    [</span><span style="color: #A31515">&quot;@babel/preset-env&quot;</span><span style="color: #000000">, { </span><span style="color: #001080">targets:</span><span style="color: #000000"> { </span><span style="color: #001080">node:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;current&quot;</span><span style="color: #000000"> } }],</span>
+<span style="color: #000000">    </span><span style="color: #A31515">&quot;@babel/preset-typescript&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ],</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">plugins:</span><span style="color: #000000"> [</span>
+<span style="color: #000000">    [</span>
+<span style="color: #000000">      </span><span style="color: #A31515">&quot;module-resolver&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">      {</span>
+<span style="color: #000000">        </span><span style="color: #001080">alias:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">          </span><span style="color: #A31515">&quot;^@nighttrax/(.+)&quot;</span><span style="color: #001080">:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;../</span><span style="color: #EE0000">\\</span><span style="color: #A31515">1/src&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">        },</span>
+<span style="color: #000000">      },</span>
+<span style="color: #000000">    ],</span>
+<span style="color: #000000">  ],</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>See the full example <a href="examples/jest-babel">here</a>.</p>
+				<a href="#webpack" id="webpack" style="color: inherit; text-decoration: none;">
+					<h3>webpack</h3>
+				</a>
+				<p>Use <a href="https://www.npmjs.com/package/tsconfig-paths-webpack-plugin">tsconfig-paths-webpack-plugin</a> to resolve the path aliases:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">TsconfigPathsPlugin</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;tsconfig-paths-webpack-plugin&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">resolve:</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">plugins:</span><span style="color: #000000"> [</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TsconfigPathsPlugin</span><span style="color: #000000">()]</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>See the full example <a href="examples/webpack">here</a>.</p>
+				<a href="#jest" id="jest" style="color: inherit; text-decoration: none;">
+					<h3>jest</h3>
+				</a>
+				<p>If you use <code>Babel</code> then see <a href="examples/jest-babel">this example</a> from the <a href="#babel">Babel</a> section above.</p>
+				<p>If you use <a href="https://github.com/kulshekhar/ts-jest">ts-jest</a> then you can use its <code>pathsToModuleNameMapper</code> helper: </p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">pathsToModuleNameMapper</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;ts-jest/utils&quot;</span><span style="color: #000000">);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">compilerOptions</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;../../tsconfig.json&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #001080">preset:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;ts-jest&quot;</span><span style="color: #000000">,</span>
+
+<span style="color: #000000">  </span><span style="color: #001080">moduleNameMapper:</span><span style="color: #000000"> </span><span style="color: #795E26">pathsToModuleNameMapper</span><span style="color: #000000">(</span><span style="color: #001080">compilerOptions</span><span style="color: #000000">.</span><span style="color: #001080">paths</span><span style="color: #000000">, {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// This has to match the baseUrl defined in tsconfig.json.</span>
+<span style="color: #000000">    </span><span style="color: #001080">prefix:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;&lt;rootDir&gt;/../../&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  }),</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>See the full example <a href="examples/jest-tsjest">here</a>.</p>
+				<a href="#create-react-app" id="create-react-app" style="color: inherit; text-decoration: none;">
+					<h3>create-react-app</h3>
+				</a>
+				<p>Use <a href="https://www.npmjs.com/package/react-app-rewired">react-app-rewired</a> to extend CRA&#39;s webpack config and apply the <a href="https://www.npmjs.com/package/tsconfig-paths-webpack-plugin">tsconfig-paths-webpack-plugin</a>:</p>
+				<pre><code class="language-js"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">TsconfigPathsPlugin</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;tsconfig-paths-webpack-plugin&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = (</span><span style="color: #001080">config</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #008000">// Remove the ModuleScopePlugin which throws when we</span>
+<span style="color: #000000">  </span><span style="color: #008000">// try to import something outside of src/.</span>
+<span style="color: #000000">  </span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">resolve</span><span style="color: #000000">.</span><span style="color: #001080">plugins</span><span style="color: #000000">.</span><span style="color: #795E26">pop</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">  </span><span style="color: #008000">// Resolve the path aliases.</span>
+<span style="color: #000000">  </span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">resolve</span><span style="color: #000000">.</span><span style="color: #001080">plugins</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TsconfigPathsPlugin</span><span style="color: #000000">());</span>
+
+<span style="color: #000000">  </span><span style="color: #008000">// Let Babel compile outside of src/.</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">oneOfRule</span><span style="color: #000000"> = </span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">module</span><span style="color: #000000">.</span><span style="color: #001080">rules</span><span style="color: #000000">.</span><span style="color: #795E26">find</span><span style="color: #000000">((</span><span style="color: #001080">rule</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">rule</span><span style="color: #000000">.</span><span style="color: #001080">oneOf</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">tsRule</span><span style="color: #000000"> = </span><span style="color: #001080">oneOfRule</span><span style="color: #000000">.</span><span style="color: #001080">oneOf</span><span style="color: #000000">.</span><span style="color: #795E26">find</span><span style="color: #000000">((</span><span style="color: #001080">rule</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span>
+<span style="color: #000000">      </span><span style="color: #001080">rule</span><span style="color: #000000">.</span><span style="color: #001080">test</span><span style="color: #000000">.</span><span style="color: #795E26">toString</span><span style="color: #000000">().</span><span style="color: #795E26">includes</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;ts|tsx&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    );</span>
+<span style="color: #000000">  </span><span style="color: #001080">tsRule</span><span style="color: #000000">.</span><span style="color: #001080">include</span><span style="color: #000000"> = </span><span style="color: #0000FF">undefined</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #001080">tsRule</span><span style="color: #000000">.</span><span style="color: #001080">exclude</span><span style="color: #000000"> =</span><span style="color: #811F3F"> /node_modules/</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">config</span><span style="color: #000000">;</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>See the full example <a href="examples/cra">here</a>.</p>
+				<a href="#nextjs" id="nextjs" style="color: inherit; text-decoration: none;">
+					<h3>NextJS</h3>
+				</a>
+				<p>Extend Next&#39;s webpack config to enable compiling packages from the monorepo:</p>
+				<pre><code class="language-js"><span style="color: #267F99">module</span><span style="color: #000000">.</span><span style="color: #267F99">exports</span><span style="color: #000000"> = {</span>
+<span style="color: #000000">  </span><span style="color: #795E26">webpack</span><span style="color: #001080">:</span><span style="color: #000000"> (</span><span style="color: #001080">config</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #008000">// Let Babel compile outside of src/.</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">tsRule</span><span style="color: #000000"> = </span><span style="color: #001080">config</span><span style="color: #000000">.</span><span style="color: #001080">module</span><span style="color: #000000">.</span><span style="color: #001080">rules</span><span style="color: #000000">.</span><span style="color: #795E26">find</span><span style="color: #000000">(</span>
+<span style="color: #000000">      (</span><span style="color: #001080">rule</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">rule</span><span style="color: #000000">.</span><span style="color: #001080">test</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">rule</span><span style="color: #000000">.</span><span style="color: #001080">test</span><span style="color: #000000">.</span><span style="color: #795E26">toString</span><span style="color: #000000">().</span><span style="color: #795E26">includes</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;tsx|ts&quot;</span><span style="color: #000000">)</span>
+<span style="color: #000000">    );</span>
+<span style="color: #000000">    </span><span style="color: #001080">tsRule</span><span style="color: #000000">.</span><span style="color: #001080">include</span><span style="color: #000000"> = </span><span style="color: #0000FF">undefined</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #001080">tsRule</span><span style="color: #000000">.</span><span style="color: #001080">exclude</span><span style="color: #000000"> =</span><span style="color: #811F3F"> /node_modules/</span><span style="color: #000000">;</span>
+
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">config</span><span style="color: #000000">;</span>
+<span style="color: #000000">  },</span>
+<span style="color: #000000">};</span>
+</code></pre>
+				<p>See the full example <a href="examples/nextjs">here</a>.</p>
+				<a href="#nestjs" id="nestjs" style="color: inherit; text-decoration: none;">
+					<h3>NestJS</h3>
+				</a>
+				<p>Include the path aliases in both <code>tsconfig.json</code> and <code>tsconfig.build.json</code> and tell NestJS where to find the <code>main.js</code> file:</p>
+				<pre><code class="language-js"><span style="color: #000000">{</span>
+<span style="color: #000000">  </span><span style="color: #A31515">&quot;collection&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;@nestjs/schematics&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">&quot;sourceRoot&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;src&quot;</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #A31515">&quot;entryFile&quot;</span><span style="color: #000000">: </span><span style="color: #A31515">&quot;examples/nestjs/src/main&quot;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>See the full example <a href="examples/nestjs">here</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_nighttrax_bar.html">@nighttrax/bar</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_nighttrax_components.html">@nighttrax/components</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_nighttrax_foo.html">@nighttrax/foo</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_nighttrax_rollup_example.html">@nighttrax/rollup-<wbr>example</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
